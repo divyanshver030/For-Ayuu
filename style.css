@@ -4,44 +4,32 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Arial', sans-serif;
-    /* This makes the image cover the whole screen on desktop */
+    font-family: sans-serif;
+    /* This makes the image cover any screen perfectly */
     background: url('home.jpg') no-repeat center center fixed;
     background-size: cover;
-    overflow: hidden;
+    color: white;
+    text-align: center;
 }
 
-/* This class swaps the background image */
 .success-bg {
     background-image: url('success.jpg') !important;
 }
 
-.content-box {
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent box so text is readable */
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    color: white;
-    backdrop-filter: blur(5px); /* Makes it look modern */
-}
-
-h1 { margin: 0 0 20px 0; }
-
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    height: 50px;
+#main-content {
+    background: rgba(0, 0, 0, 0.5); /* Makes text readable over ANY photo */
+    padding: 20px;
+    border-radius: 15px;
 }
 
 button {
     font-size: 1.2rem;
-    padding: 10px 30px;
-    border: none;
-    border-radius: 50px;
+    padding: 10px 25px;
     cursor: pointer;
-    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    margin: 10px;
 }
 
 #yesBtn { background: #ff4081; color: white; }
-#noBtn { background: white; color: black; transition: 0.2s; }
+#noBtn { position: relative; }
