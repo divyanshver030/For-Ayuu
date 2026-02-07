@@ -1,17 +1,21 @@
-/* Universal Reset */
+/* Ensure the page takes up the full screen height */
 body, html {
     height: 100%;
     margin: 0;
     font-family: 'Arial', sans-serif;
-    overflow: hidden; /* Prevents scrolling when the No button jumps */
+    overflow: hidden;
 }
 
 #bg-container {
-    height: 100%;
-    width: 100%;
-    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    /* Centers the photo so the middle part (likely you two) is always visible */
+    background-position: center center; 
     background-repeat: no-repeat;
-    background-size: cover; /* This is the key for fitting all screens */
+    /* This ensures the photo covers the whole desktop screen without stretching */
+    background-size: cover; 
+    /* Fixes the background so it doesn't move when content does */
+    background-attachment: fixed;
     transition: background-image 0.8s ease-in-out;
 }
 
@@ -23,10 +27,11 @@ body, html {
     background-image: url('success.jpg') !important;
 }
 
+/* This overlay adds a slight dark tint so your white text is easy to read */
 .overlay {
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.45); /* Softens the photo for text readability */
+    background-color: rgba(0, 0, 0, 0.4); 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,34 +40,33 @@ body, html {
 .container {
     text-align: center;
     color: white;
-    padding: 15px;
-    width: 90%; /* Keeps content from hitting the edges on mobile */
-    max-width: 600px;
+    padding: 20px;
+    max-width: 800px; /* Better for wide desktop screens */
 }
 
 h1 {
-    font-size: 2.2rem;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-    margin-bottom: 30px;
+    font-size: 3rem; /* Larger for Desktop */
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
 }
 
 .button-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 25px;
-    height: 120px; /* Provides room for the 'No' button to start */
+    gap: 50px;
+    margin-top: 30px;
+    height: 100px;
 }
 
 button {
-    font-size: 1.3rem;
-    padding: 15px 35px;
+    font-size: 1.5rem;
+    padding: 15px 40px;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-    transition: transform 0.1s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    transition: transform 0.2s;
 }
 
 #yesBtn {
@@ -71,28 +75,16 @@ button {
 }
 
 #noBtn {
-    background-color: #f4f4f4;
+    background-color: #f0f0f0;
     color: #333;
     transition: all 0.2s ease;
     z-index: 1000;
 }
 
-/* SMARTPHONE OPTIMIZATION (Media Query) */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 1.8rem;
-    }
-    
-    button {
-        font-size: 1.1rem;
-        padding: 12px 25px;
-    }
-
-    .button-wrapper {
-        gap: 15px;
-    }
+/* Keeps it looking good if you shrink the browser window */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    button { font-size: 1.2rem; padding: 12px 30px; }
 }
 
-.hidden {
-    display: none;
-}
+.hidden { display: none; }
