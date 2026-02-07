@@ -18,11 +18,19 @@ h1 {
     color: #d32f2f;
 }
 
+.main-img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
 .button-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px; /* This physically forces the buttons apart */
+    gap: 40px; 
     margin-top: 20px;
     height: 100px;
 }
@@ -37,23 +45,16 @@ button {
 }
 
 #yesBtn {
-    background-color: #4caf50;
+    background-color: #ff4081; /* Pink theme for Ayuu */
     color: white;
 }
 
 #noBtn {
-    background-color: #f44336;
+    background-color: #9e9e9e;
     color: white;
-    /* No position:fixed here means it stays in the flex row on load */
     transition: all 0.2s ease;
 }
 
 .hidden {
     display: none;
-}
-
-#message img {
-    max-width: 300px;
-    border-radius: 10px;
-    margin-top: 20px;
 }
