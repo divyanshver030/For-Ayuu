@@ -8,15 +8,20 @@ const bgContainer = document.getElementById('bg-container');
 function moveButton(e) {
     e.preventDefault();
     noBtn.style.position = 'fixed';
-    const padding = 50;
+
+    // Calculate boundaries to keep it visible on any screen size
+    const padding = 60;
     const maxX = window.innerWidth - noBtn.offsetWidth - padding;
     const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
     const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
     const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
+
     noBtn.style.left = randomX + 'px';
     noBtn.style.top = randomY + 'px';
 }
 
+// Works for both Desktop (click) and Smartphone (touchstart)
 noBtn.addEventListener('click', moveButton);
 noBtn.addEventListener('touchstart', moveButton);
 
@@ -25,7 +30,6 @@ yesBtn.addEventListener('click', () => {
     wrapper.classList.add('hidden');
     noBtn.style.display = 'none';
     
-    // Swap the background image class
     bgContainer.classList.remove('home-bg');
     bgContainer.classList.add('success-bg');
     
