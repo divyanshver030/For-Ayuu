@@ -2,20 +2,27 @@ const noBtn = document.getElementById('noBtn');
 const yesBtn = document.getElementById('yesBtn');
 const question = document.getElementById('question');
 const message = document.getElementById('message');
-const buttonsDiv = document.querySelector('.buttons');
 
-// Make the No button run away
-noBtn.addEventListener('mouseover', () => {
-    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+// Improved "Runaway" logic
+noBtn.addEventListener('mouseover', moveButton);
+noBtn.addEventListener('touchstart', moveButton); // Adds mobile support!
+
+function moveButton() {
+    // Keeps the button within the visible window area
+    const padding = 20;
+    const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+    const maxY = window.innerHeight - noBtn.offsetHeight - padding;
     
-    noBtn.style.left = `${x}px`;
-    noBtn.style.top = `${y}px`;
-});
+    // Calculate random position
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+    
+    noBtn.style.left = `${randomX}px`;
+    noBtn.style.top = `${randomY}px`;
+}
 
-// What happens when she clicks Yes
 yesBtn.addEventListener('click', () => {
-    question.classList.add('hidden');
-    buttonsDiv.classList.add('hidden');
+    question.style.display = 'none';
+    document.querySelector('.buttons').style.display = 'none';
     message.classList.remove('hidden');
 });
