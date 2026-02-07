@@ -3,15 +3,13 @@ const yesBtn = document.getElementById('yesBtn');
 const question = document.getElementById('question');
 const message = document.getElementById('message');
 const wrapper = document.querySelector('.button-wrapper');
+const homeImg = document.getElementById('homeImage');
 
 function moveButton(e) {
-    // 1. Prevent the actual click/touch
     e.preventDefault();
-
-    // 2. ONLY NOW we make it fixed so it can jump anywhere
+    // Switch to fixed only when interaction starts to avoid initial overlap
     noBtn.style.position = 'fixed';
 
-    // 3. Calculate random coordinates
     const padding = 50;
     const maxX = window.innerWidth - noBtn.offsetWidth - padding;
     const maxY = window.innerHeight - noBtn.offsetHeight - padding;
@@ -19,18 +17,20 @@ function moveButton(e) {
     const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
     const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
 
-    // 4. Apply position
     noBtn.style.left = randomX + 'px';
     noBtn.style.top = randomY + 'px';
 }
 
-// Listen for interactions
 noBtn.addEventListener('click', moveButton);
 noBtn.addEventListener('touchstart', moveButton);
 
-// Success action
 yesBtn.addEventListener('click', () => {
+    // Hide original content
     question.classList.add('hidden');
     wrapper.classList.add('hidden');
+    homeImg.classList.add('hidden');
+    noBtn.style.display = 'none';
+    
+    // Show personalized success content
     message.classList.remove('hidden');
 });
