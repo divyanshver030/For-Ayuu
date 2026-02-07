@@ -1,37 +1,47 @@
 body {
-    /* This makes the image cover the whole screen on your desktop */
-    background: url('home.jpg') no-repeat center center fixed; 
-    background-size: cover;
-    
+    margin: 0;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    margin: 0;
-    color: white;
-    text-align: center;
-    font-family: sans-serif;
+    font-family: 'Arial', sans-serif;
+    /* This makes the image cover the whole screen on desktop */
+    background: url('home.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
 }
 
-/* This class will be added by JS when she clicks Yes */
+/* This class swaps the background image */
 .success-bg {
     background-image: url('success.jpg') !important;
 }
 
+.content-box {
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent box so text is readable */
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    backdrop-filter: blur(5px); /* Makes it look modern */
+}
+
+h1 { margin: 0 0 20px 0; }
+
 .buttons {
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    height: 50px;
 }
 
 button {
-    font-size: 20px;
+    font-size: 1.2rem;
     padding: 10px 30px;
-    cursor: pointer;
-    border-radius: 10px;
     border: none;
-    margin: 0 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 #yesBtn { background: #ff4081; color: white; }
-
-#noBtn { position: relative; } /* Necessary for it to move */
+#noBtn { background: white; color: black; transition: 0.2s; }
