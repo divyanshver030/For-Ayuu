@@ -1,8 +1,9 @@
+/* Universal Reset */
 body, html {
     height: 100%;
     margin: 0;
     font-family: 'Arial', sans-serif;
-    overflow: hidden;
+    overflow: hidden; /* Prevents scrolling when the No button jumps */
 }
 
 #bg-container {
@@ -10,25 +11,22 @@ body, html {
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-    transition: background-image 0.8s ease-in-out; /* Smooth transition between photos */
+    background-size: cover; /* This is the key for fitting all screens */
+    transition: background-image 0.8s ease-in-out;
 }
 
-/* Home Page Background */
 .home-bg {
     background-image: url('home.jpg');
 }
 
-/* Success Page Background - using !important to ensure it overrides */
 .success-bg {
     background-image: url('success.jpg') !important;
 }
 
-/* The overlay prevents the photo from making the text hard to read */
 .overlay {
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Darkens the image slightly */
+    background-color: rgba(0, 0, 0, 0.45); /* Softens the photo for text readability */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,31 +35,34 @@ body, html {
 .container {
     text-align: center;
     color: white;
-    padding: 20px;
+    padding: 15px;
+    width: 90%; /* Keeps content from hitting the edges on mobile */
+    max-width: 600px;
 }
 
 h1 {
-    font-size: 2.5rem;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    font-size: 2.2rem;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    margin-bottom: 30px;
 }
 
 .button-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    margin-top: 20px;
-    height: 100px;
+    gap: 25px;
+    height: 120px; /* Provides room for the 'No' button to start */
 }
 
 button {
-    font-size: 1.5rem;
-    padding: 12px 30px;
+    font-size: 1.3rem;
+    padding: 15px 35px;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    transition: transform 0.1s;
 }
 
 #yesBtn {
@@ -70,17 +71,28 @@ button {
 }
 
 #noBtn {
-    background-color: #9e9e9e;
-    color: white;
+    background-color: #f4f4f4;
+    color: #333;
     transition: all 0.2s ease;
     z-index: 1000;
 }
 
-.hidden {
-    display: none;
+/* SMARTPHONE OPTIMIZATION (Media Query) */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    button {
+        font-size: 1.1rem;
+        padding: 12px 25px;
+    }
+
+    .button-wrapper {
+        gap: 15px;
+    }
 }
 
-#message h2 {
-    font-size: 2rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+.hidden {
+    display: none;
 }
