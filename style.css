@@ -1,0 +1,48 @@
+body {
+    background-color: #ffebee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden; /* Prevents scrollbars if the button moves near the edge */
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: #d32f2f;
+}
+
+.buttons {
+    margin-top: 20px;
+    position: relative;
+    height: 100px;
+}
+
+button {
+    font-size: 1.5rem;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#yesBtn {
+    background-color: #4caf50;
+    color: white;
+}
+
+#noBtn {
+    background-color: #f44336;
+    color: white;
+    position: absolute;
+}
+
+.hidden {
+    display: none;
+}
